@@ -14,6 +14,10 @@ class UsersController < ApplicationController
         end
     end
 
+    # def update
+    #     # @current_user.update(params_from_frontend)
+    # end
+
     def login
         user = User.find_by(username: user_params[:username])
 
