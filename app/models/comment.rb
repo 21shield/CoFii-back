@@ -1,4 +1,4 @@
 class Comment < ApplicationRecord
   belongs_to :user
-  belongs_to :CoffeeShop
+  belongs_to :coffee_shop
 end
