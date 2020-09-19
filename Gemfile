@@ -42,3 +42,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "jwt", "~> 2.2"
 gem "active_model_serializers", "~> 0.10.10"
+
+gem 'http-cookie', '~> 1.0', '>= 1.0.3'
+gem 'mime-types'
+gem 'netrc', '~> 0.11.0'
+gem 'http-accept', '~> 2.1', '>= 2.1.1'
+gem 'rest-client', '~> 2.0', '>= 2.0.2'
+gem 'dotenv-rails'
