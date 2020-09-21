@@ -10,3 +10,15 @@
 #     }) 
 
 # puts x
+User.destroy_all
+
+User.create({
+    username: "barb", 
+    email: "barb@gmail.com",
+    password: "asdf",
+    password_confirmation: "asdf",
+    bio:"I love Chocolate cookies",
+ 
+})
+
+puts "DONE SEEDINGS"

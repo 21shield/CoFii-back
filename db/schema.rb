@@ -16,10 +16,13 @@ ActiveRecord::Schema.define(version: 2020_09_19_063018) do
   enable_extension "plpgsql"
 
   create_table "coffee_shops", force: :cascade do |t|
+    t.string "external_id"
     t.string "name"
     t.string "image_url"
+    t.string "url"
     t.decimal "rating"
-    t.decimal "coordinates"
+    t.decimal "latitude"
+    t.decimal "longitude"
     t.string "location"
     t.string "price"
     t.datetime "created_at", precision: 6, null: false
