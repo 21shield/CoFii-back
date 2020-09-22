@@ -18,6 +18,7 @@ User.create({
     password: "asdf",
     password_confirmation: "asdf",
     bio:"I love Chocolate cookies",
+    avatar: "https://images.unsplash.com/photo-1534278931827-8a259344abe7?ixlib=rb-1.2.1&w=1000&q=80",
  
 })
 
