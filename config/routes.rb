@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :comments
+  post '/comments', to: 'comments#create'
   # resources :coffee_shops
   # resources :users
   post '/signup', to: 'users#create'
