@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2020_09_23_031737) do
     t.string "email"
     t.string "password_digest"
     t.string "bio"
-    t.string "avatar"
+    t.string "avatar", default: "https://d25tv1xepz39hi.cloudfront.net/thumbnails/Coffee_Photography_10-thumb-small.jpg"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
