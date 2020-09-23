@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_19_063018) do
+ActiveRecord::Schema.define(version: 2020_09_23_031737) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2020_09_19_063018) do
     t.decimal "longitude"
     t.string "location"
     t.string "price"
+    t.decimal "distance"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -40,6 +41,15 @@ ActiveRecord::Schema.define(version: 2020_09_19_063018) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "coffee_shop_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["coffee_shop_id"], name: "index_favorites_on_coffee_shop_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "email"
@@ -52,4 +62,6 @@ ActiveRecord::Schema.define(version: 2020_09_19_063018) do
 
   add_foreign_key "comments", "coffee_shops"
   add_foreign_key "comments", "users"
+  add_foreign_key "favorites", "coffee_shops"
+  add_foreign_key "favorites", "users"
 end

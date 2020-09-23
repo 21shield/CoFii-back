@@ -2,6 +2,7 @@ require 'rest-client'
 
 class CoffeeShop < ApplicationRecord
     has_many :comments
+    has_many :favorites
     validates :external_id, :uniqueness => true
 
     def self.getShops(coords)

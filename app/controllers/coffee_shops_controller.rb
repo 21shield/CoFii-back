@@ -12,14 +12,14 @@ class CoffeeShopsController < ApplicationController
         # create/findor create by shops is a array of objs
         data = JSON.parse(response.body)
         created_shops = data['businesses'].map do |shop|
-             
             params = {
                 external_id: shop['id'],
                 name: shop['name'], 
                 image_url:shop['image_url'], 
                 url:shop['url'], 
                 rating: shop['rating'], 
-                latitude: shop['coordinates']['latitude'], longitude: shop['coordinates']['longitude'], location: shop['location']['display_address'][0]
+                latitude: shop['coordinates']['latitude'], longitude: shop['coordinates']['longitude'], location: shop['location']['display_address'][0],
+                distance: shop['distance']
             }
 
             CoffeeShop.find_or_create_by(params)

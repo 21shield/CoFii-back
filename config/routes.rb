@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  post '/favorites', to: 'favorites#create'
+  delete '/removeFav', to: 'favorites#delete'
+
   post '/comments', to: 'comments#create'
   get '/comments', to: 'comments#index'
   # resources :coffee_shops

@@ -10,6 +10,7 @@ class CreateCoffeeShops < ActiveRecord::Migration[6.0]
       t.decimal :longitude
       t.string :location
       t.string :price
+      t.decimal :distance
       
 
       t.timestamps
