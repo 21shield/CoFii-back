@@ -49,3 +49,5 @@ gem 'netrc', '~> 0.11.0'
 gem 'http-accept', '~> 2.1', '>= 2.1.1'
 gem 'rest-client', '~> 2.0', '>= 2.0.2'
 gem 'dotenv-rails'
+
+gem 'cloudinary'
