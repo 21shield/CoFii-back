@@ -2,6 +2,8 @@ class UsersController < ApplicationController
     skip_before_action :authenticate, only: [:login, :create]
 
     def create
+        
+       
         user = User.create(user_params)
         if user.valid?
             token = encode_token({ user_id: user.id})
@@ -14,9 +16,16 @@ class UsersController < ApplicationController
         end
     end
 
-    # def update
-    #     # @current_user.update(params_from_frontend)
-    # end
+    def update
+        byebug
+        user = User.find(@current_user.id)
+        image = Cloudinary::Uploader.upload(params[:avatar])
+        user.update(user_params)
+        user.update(avatar: image["url"])
+    
+        # @current_user.update(params_from_frontend)
+        render json: user
+    end
 
     def login
         user = User.find_by(username: user_params[:username])
@@ -41,7 +50,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.permit(:username, :password,:password_confirmation, :email, :bio, :avatar)
+        params.permit(:username, :password,:password_confirmation, :email, :bio)
     end
 
 
