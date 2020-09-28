@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :username
       t.string :email
       t.string :password_digest
-      t.string :bio
+      t.string :bio, :default => ""
       t.string :avatar , :default => "https://d25tv1xepz39hi.cloudfront.net/thumbnails/Coffee_Photography_10-thumb-small.jpg"
 
       t.timestamps

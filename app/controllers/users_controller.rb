@@ -17,14 +17,12 @@ class UsersController < ApplicationController
     end
 
     def update
-        byebug
-        user = User.find(@current_user.id)
+       
         image = Cloudinary::Uploader.upload(params[:avatar])
-        user.update(user_params)
-        user.update(avatar: image["url"])
-    
+        @current_user.update(user_params)
+        @current_user.update(avatar: image["url"])
         # @current_user.update(params_from_frontend)
-        render json: user
+        render json: {user: UserSerializer.new(@current_user)}
     end
 
     def login
