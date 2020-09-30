@@ -35,7 +35,8 @@ class CoffeeShopsController < ApplicationController
     private
 
     def cordinates_params
-        params.permit(:latitude, :longitude)
+        
+        params.permit(:latitude, :longitude, :location,:coffee_shop)
     end
 
 end
