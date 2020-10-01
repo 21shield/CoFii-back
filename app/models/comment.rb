@@ -4,5 +4,8 @@ class Comment < ApplicationRecord
 
   validates :content, presence: true
  
-  
+  def username
+    self.user.username
+  end
+
 end

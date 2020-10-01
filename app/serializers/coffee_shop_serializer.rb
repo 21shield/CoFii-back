@@ -1,5 +1,5 @@
 class CoffeeShopSerializer < ActiveModel::Serializer
-  attributes :external_id, :name, :image_url, :url, :rating,:latitude, :longitude, :location,:distance
+  attributes :external_id, :name, :image_url, :url, :rating,:latitude, :longitude, :location, :distance, :comments
 
-  has_many :comments
+  # has_many :comments
 end

@@ -8,9 +8,9 @@ class CoffeeShopsController < ApplicationController
 
     def loadShops
        
-        response = CoffeeShop.getShops(cordinates_params)
+        # response = CoffeeShop.getShops(cordinates_params)
         # create/findor create by shops is a array of objs
-        data = JSON.parse(response.body)
+        data = JSON.parse(CoffeeShop.getShops(cordinates_params).body)
         created_shops = data['businesses'].map do |shop|
             params = {
                 external_id: shop['id'],
@@ -25,8 +25,7 @@ class CoffeeShopsController < ApplicationController
             CoffeeShop.find_or_create_by(params)
         
         end
-       
-        render json: created_shops
+        render json: created_shops, each_serializer: CoffeeShopSerializer, include: '**'
 
     end
 
@@ -36,7 +35,7 @@ class CoffeeShopsController < ApplicationController
 
     def cordinates_params
         
-        params.permit(:latitude, :longitude, :location,:coffee_shop)
+        params.permit(:latitude, :longitude, :location)
     end
 
 end
