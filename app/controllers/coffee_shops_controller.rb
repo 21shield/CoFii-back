@@ -13,10 +13,13 @@ class CoffeeShopsController < ApplicationController
         data = JSON.parse(CoffeeShop.getShops(cordinates_params).body)
         created_shops = data['businesses'].map do |shop|
             address = shop['location']['display_address'].join("")
+            catArr = shop['categories'].collect { |cat| cat['title']}
+            categories = catArr.join(",")
             params = {
                 external_id: shop['id'],
                 name: shop['name'], 
                 image_url:shop['image_url'], 
+                categories: categories,
                 url:shop['url'], 
                 rating: shop['rating'], 
                 latitude: shop['coordinates']['latitude'], 

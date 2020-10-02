@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2020_09_23_031737) do
   create_table "coffee_shops", force: :cascade do |t|
     t.string "external_id"
     t.string "name"
+    t.string "categories"
     t.string "image_url"
     t.string "url"
     t.decimal "rating"

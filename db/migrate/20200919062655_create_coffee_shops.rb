@@ -3,6 +3,7 @@ class CreateCoffeeShops < ActiveRecord::Migration[6.0]
     create_table :coffee_shops do |t|
       t.string :external_id
       t.string :name
+      t.string :categories
       t.string :image_url
       t.string :url
       t.decimal :rating
@@ -10,6 +11,7 @@ class CreateCoffeeShops < ActiveRecord::Migration[6.0]
       t.decimal :longitude
       t.string :location
       t.string :price
+    
       t.decimal :distance
       
 
